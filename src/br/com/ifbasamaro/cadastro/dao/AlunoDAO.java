@@ -33,11 +33,14 @@ public class AlunoDAO extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		String ddl = "CREATE TABLE Alunos (id PRIMARY KEY, " +
-				"nome TEXT UNIQUE NOT NULL, telefone TEXT," +
-				"endereco TEXT, foto TEXT); ";
-		
-		db.execSQL(ddl);
+		StringBuilder sb = new StringBuilder();
+		sb.append("CREATE TABLE " + "Alunos" + " ");
+		sb.append("(id INTEGER PRIMARY KEY, ");
+		sb.append(" nome TEXT UNIQUE NOT NULL, ");
+		sb.append(" telefone TEXT, ");
+		sb.append(" endereco TEXT, ");
+		sb.append(" foto TEXT);");
+		db.execSQL(sb.toString());
 	}
 
 	@Override
